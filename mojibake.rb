@@ -8,7 +8,8 @@ hiragana = {
   "ma"  => "ま", "mi" => "み", "mu" => "む", "me" => "め", "mo" => "も",
   "ya"  => "や",               "yu" => "ゆ",               "yo" => "よ",
   "ra"  => "ら", "ri" => "り", "ru" => "る", "re" => "れ", "ro" => "ろ",
-  "wa"  => "わ",                                           "wo" => "を"
+  "wa"  => "わ",                                           "wo" => "を",
+  "n"   => "ん"
 }
 
 puts "Welcome to mojibake (文字化け) [press enter to continue]"

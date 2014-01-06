@@ -22,13 +22,13 @@ module Game
     else "Arial"
   end
 
-  def pick_options opts={}
-    opts.merge(:font => "#{FONT} 100px", :align => "center")
-  end
-
   def clear
     @app.clear
     @app.background "#fff"
+  end
+
+  def pick_options opts={}
+    opts.merge(:font => "#{FONT} 100px", :align => "center")
   end
 
   def restart
@@ -45,14 +45,6 @@ module Game
       end
       @app.image "images/bg.jpg", align: "center", margin_top: 55
     end
-  end
-
-  def set_random_pick
-    HIRAGANA.values.sample
-  end
-
-  def render_pick(pick)
-    @app.title pick, pick_options
   end
 end
 

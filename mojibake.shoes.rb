@@ -6,24 +6,20 @@ class Mojibake
 
   def run
     welcome do
-      pick = set_random_pick
+      pick = HIRAGANA.values.sample
       @app.stack do
-        render_pick pick
+        @app.title pick, pick_options
       end
 
       guess = @app.edit_line width: 290
       @app.button "Guess", width: 300 do
-        check_guess(guess.text, pick)
+        if HIRAGANA[guess] == pick
+          @app.alert "Congratulations!"
+        else
+          @app.alert "Wrong! The correct answer was: #{HIRAGANA.key(pick)}."
+        end
         restart
       end
-    end
-  end
-
-  def check_guess(guess, pick)
-    if HIRAGANA[guess] == pick
-      @app.alert "Congratulations!"
-    else
-      @app.alert "Wrong! The correct answer was: #{HIRAGANA.key(pick)}."
     end
   end
 end

@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'helpers/game'
 
 class Mojibake
@@ -6,7 +7,9 @@ class Mojibake
   def run
     welcome do
       pick = set_random_pick
-      render_pick pick
+      @app.stack do
+        render_pick pick
+      end
 
       guess = @app.edit_line width: 290
       @app.button "Guess", width: 300 do
@@ -17,10 +20,10 @@ class Mojibake
   end
 
   def check_guess(guess, pick)
-    if guess == pick
+    if HIRAGANA[guess] == pick
       @app.alert "Congratulations!"
     else
-      @app.alert "Wrong! The correct answer was: #{pick}."
+      @app.alert "Wrong! The correct answer was: #{HIRAGANA.key(pick)}."
     end
   end
 end

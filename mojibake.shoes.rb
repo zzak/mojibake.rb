@@ -3,10 +3,7 @@ require 'helpers/game'
 class Mojibake
   include Game
 
-  attr_accessor :app
-
-  def initialize app
-    @app = app
+  def run
     welcome do
       pick = set_random_pick
       render_pick pick

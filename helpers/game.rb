@@ -32,3 +32,10 @@ module Game
     @app.image "images/hiragana/#{pick}.png", width: 300, height: 300
   end
 end
+
+class Mojibake
+  def initialize app
+    @app = app
+    run
+  end
+end
